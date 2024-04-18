@@ -1,0 +1,7 @@
+site_name: Car Shop REST API documentation
+theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+    - js
+    - json

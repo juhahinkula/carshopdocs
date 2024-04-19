@@ -7,13 +7,20 @@ https://carrestservice-carshop.rahtiapp.fi/
 ## Endpoints
 
 ### Get All Cars
-To retrieve all cars , you can use the `GET /cars` endpoint.
+Retrieve all cars.
 
-Request:
+**Request:**
 
-No parameters are required for this endpoint.
+- HTTP Method: `GET`
+- Endpoint: `/cars`
+- Request parameters: None
 
-Response:
+Example Request:
+```
+GET /cars
+```
+
+**Response:**
 
 The response is a JSON object with a `_embedded` field containing an array of cars. Each car object includes the following fields:
 
@@ -66,38 +73,38 @@ Example Response
 ```
 
 ### Get Car by Id
-To retrieve a specific car's details, you can use the `GET /cars/{id}` endpoint, where `{id}` is the unique identifier of the car.
+Retrieve a specific car's details.
 
-Request:
+**Request:**
 
-- The request does not require a request body, only the car's id as a path parameter.
-
-Path Parameters:
-
-- `id` (required): The unique identifier of the car. This is an integer.
+- HTTP Method: `GET`
+- Endpoint: `/cars/{id}`
+- Path parameters: `{id}` (integer, required): The unique identifier of the car.
 
 Example Request:
 ```
 GET /cars/123
 ```
+**Response:**
+
+- Body: JSON object with the car's details.
 
 ### Create New Car
-To create a new car you can use `POST /cars` endpoint.
+Create a new car. 
 
-Request:
+**Request:**
 
-This endpoint requires a JSON object in the request body with the following fields:
-
-- `brand`: The manufacturer of the car (string).
-- `model`: The model of the car (string).
-- `color`: The color of the car (string).
-- `fuel`: The fuel type of the car (string).
-- `modelYear`: The year the car was manufactured (integer).
-- `price`: The price of the car (number).
-
-Headers:
-
- `'Content-Type': 'application/json'`.
+- HTTP Method: `POST`
+- Endpoint: `/cars`
+- Request Headers:
+    - `'Content-Type' : 'application/json'`
+- Request body: JSON object with the following fields (all required)
+    - `brand`: The manufacturer of the car (string).
+    - `model`: The model of the car (string).
+    - `color`: The color of the car (string).
+    - `fuel`: The fuel type of the car (string).
+    - `modelYear`: The year the car was manufactured (integer).
+    - `price`: The price of the car (number).
 
 Example Request:
 ```json
@@ -116,29 +123,22 @@ Content-Type: application/json
 
 ### Update Car
 
-To update a specific car's details, you can use the `PUT /cars/{id}` endpoint, where `{id}` is the unique identifier of the car.
+Update a specific car's details. 
 
-Request:
+**Request:**
 
-The request requires the car's id as a path parameter and the updated car details in the request body as a JSON string.
-
-Headers:
-
-`Content-Type: 'application/json'`
-
-Path Parameters:
-
-`id` (required): The unique identifier of the car. This is an integer.
-
-Request Body:
-The request body should be a JSON object containing the updated car details. All fields are optional, and only the provided fields will be updated.
-
-- `brand`: The manufacturer of the car (string).
-- `model`: The model of the car (string).
-- `color`: The color of the car (string).
-- `fuel`: The fuel type of the car (string).
-- `modelYear`: The year the car was manufactured (integer).
-- `price`: The price of the car (number).
+- HTTP Method: `PUT`
+- Endpoint: `/cars/{id}`
+- Path Parameters: `{id}` (integer, required): The unique identifier of the car.
+- Request Headers:
+    - `'Content-Type' : 'application/json'`
+- Request body: JSON object with the following fields
+    - `brand`: The manufacturer of the car (string).
+    - `model`: The model of the car (string).
+    - `color`: The color of the car (string).
+    - `fuel`: The fuel type of the car (string).
+    - `modelYear`: The year the car was manufactured (integer).
+    - `price`: The price of the car (number).
 
 Example Request:
 ```json
@@ -157,16 +157,14 @@ Content-Type: application/json
 ```
 ### Delete Car
 
-To delete a specific car, you can use the `DELETE /cars/{id}` endpoint, where `{id}` is the unique identifier of the car.
+Delete a specific car.
 
-Request:
+**Request:**
 
-The request does not require a request body, only the car's `id` as a path parameter.
+- HTTP Method: `DELETE`
+- Endpoint: `/cars/{id}`
+- Path parameters: `{id}` (integer, required): The unique identifier of the car.
 
-Path Parameters:
-
-`id` (required): The unique identifier of the car. This is an integer.
-
-Response:
+**Response:**
 
 Upon successful deletion, the API will return a 204 No Content status code. If the car with the provided id does not exist, the API will return a 404 Not Found status code.

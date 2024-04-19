@@ -6,17 +6,17 @@ The Car Shop API is a RESTful web service designed to manage the car stock of a 
 
 Overview:
 
-The API is structured around one main resources: **Cars** 
+The API is structured around one main resource: **Cars** 
 
 The car table in the backend database contains the following fields:
 
-`id`: A unique identifier for each car (integer).
-`brand`: The manufacturer of the car (string).
-`model`: The model of the car (string).
-`color`: The color of the car (string).
-`fuel`: The fuel type of the car (string).
-`modelYear`: The year the car was manufactured (integer).
-`price`: The price of the car (number).
+- `id`: A unique identifier for each car (integer).
+- `brand`: The manufacturer of the car (string).
+- `model`: The model of the car (string).
+- `color`: The color of the car (string).
+- `fuel`: The fuel type of the car (string).
+- `modelYear`: The year the car was manufactured (integer).
+- `price`: The price of the car (number).
 
 ## Base URL
 ```

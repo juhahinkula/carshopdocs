@@ -23,6 +23,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/js.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/json.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
       <script>hljs.highlightAll();</script> 
 </head>
 
@@ -96,10 +97,17 @@
 </code></pre>
 <h2 id="endpoints">Endpoints</h2>
 <h3 id="get-all-cars">Get All Cars</h3>
-<p>To retrieve all cars , you can use the <code>GET /cars</code> endpoint.</p>
-<p>Request:</p>
-<p>No parameters are required for this endpoint.</p>
-<p>Response:</p>
+<p>Retrieve all cars.</p>
+<p><strong>Request:</strong></p>
+<ul>
+<li>HTTP Method: <code>GET</code></li>
+<li>Endpoint: <code>/cars</code></li>
+<li>Request parameters: None</li>
+</ul>
+<p>Example Request:</p>
+<pre><code>GET /cars
+</code></pre>
+<p><strong>Response:</strong></p>
 <p>The response is a JSON object with a <code>_embedded</code> field containing an array of cars. Each car object includes the following fields:</p>
 <ul>
 <li><code>brand</code>: The manufacturer of the car (string).</li>
@@ -151,23 +159,31 @@
 }
 </code></pre>
 <h3 id="get-car-by-id">Get Car by Id</h3>
-<p>To retrieve a specific car's details, you can use the <code>GET /cars/{id}</code> endpoint, where <code>{id}</code> is the unique identifier of the car.</p>
-<p>Request:</p>
+<p>Retrieve a specific car's details.</p>
+<p><strong>Request:</strong></p>
 <ul>
-<li>The request does not require a request body, only the car's id as a path parameter.</li>
-</ul>
-<p>Path Parameters:</p>
-<ul>
-<li><code>id</code> (required): The unique identifier of the car. This is an integer.</li>
+<li>HTTP Method: <code>GET</code></li>
+<li>Endpoint: <code>/cars/{id}</code></li>
+<li>Path parameters: <code>{id}</code> (integer, required): The unique identifier of the car.</li>
 </ul>
 <p>Example Request:</p>
 <pre><code>GET /cars/123
 </code></pre>
-<h3 id="create-new-car">Create New Car</h3>
-<p>To create a new car you can use <code>POST /cars</code> endpoint.</p>
-<p>Request:</p>
-<p>This endpoint requires a JSON object in the request body with the following fields:</p>
+<p><strong>Response:</strong></p>
 <ul>
+<li>Body: JSON object with the car's details.</li>
+</ul>
+<h3 id="create-new-car">Create New Car</h3>
+<p>Create a new car. </p>
+<p><strong>Request:</strong></p>
+<ul>
+<li>HTTP Method: <code>POST</code></li>
+<li>Endpoint: <code>/cars</code></li>
+<li>Request Headers:<ul>
+<li><code>'Content-Type' : 'application/json'</code></li>
+</ul>
+</li>
+<li>Request body: JSON object with the following fields (all required)<ul>
 <li><code>brand</code>: The manufacturer of the car (string).</li>
 <li><code>model</code>: The model of the car (string).</li>
 <li><code>color</code>: The color of the car (string).</li>
@@ -175,8 +191,8 @@
 <li><code>modelYear</code>: The year the car was manufactured (integer).</li>
 <li><code>price</code>: The price of the car (number).</li>
 </ul>
-<p>Headers:</p>
-<p><code>'Content-Type': 'application/json'</code>.</p>
+</li>
+</ul>
 <p>Example Request:</p>
 <pre><code class="language-json">POST /cars
 Content-Type: application/json
@@ -191,22 +207,25 @@ Content-Type: application/json
 } 
 </code></pre>
 <h3 id="update-car">Update Car</h3>
-<p>To update a specific car's details, you can use the <code>PUT /cars/{id}</code> endpoint, where <code>{id}</code> is the unique identifier of the car.</p>
-<p>Request:</p>
-<p>The request requires the car's id as a path parameter and the updated car details in the request body as a JSON string.</p>
-<p>Headers:</p>
-<p><code>Content-Type: 'application/json'</code></p>
-<p>Path Parameters:</p>
-<p><code>id</code> (required): The unique identifier of the car. This is an integer.</p>
-<p>Request Body:
-The request body should be a JSON object containing the updated car details. All fields are optional, and only the provided fields will be updated.</p>
+<p>Update a specific car's details. </p>
+<p><strong>Request:</strong></p>
 <ul>
+<li>HTTP Method: <code>PUT</code></li>
+<li>Endpoint: <code>/cars/{id}</code></li>
+<li>Path Parameters: <code>{id}</code> (integer, required): The unique identifier of the car.</li>
+<li>Request Headers:<ul>
+<li><code>'Content-Type' : 'application/json'</code></li>
+</ul>
+</li>
+<li>Request body: JSON object with the following fields<ul>
 <li><code>brand</code>: The manufacturer of the car (string).</li>
 <li><code>model</code>: The model of the car (string).</li>
 <li><code>color</code>: The color of the car (string).</li>
 <li><code>fuel</code>: The fuel type of the car (string).</li>
 <li><code>modelYear</code>: The year the car was manufactured (integer).</li>
 <li><code>price</code>: The price of the car (number).</li>
+</ul>
+</li>
 </ul>
 <p>Example Request:</p>
 <pre><code class="language-json">PUT /cars/123
@@ -223,12 +242,14 @@ Content-Type: application/json
 
 </code></pre>
 <h3 id="delete-car">Delete Car</h3>
-<p>To delete a specific car, you can use the <code>DELETE /cars/{id}</code> endpoint, where <code>{id}</code> is the unique identifier of the car.</p>
-<p>Request:</p>
-<p>The request does not require a request body, only the car's <code>id</code> as a path parameter.</p>
-<p>Path Parameters:</p>
-<p><code>id</code> (required): The unique identifier of the car. This is an integer.</p>
-<p>Response:</p>
+<p>Delete a specific car.</p>
+<p><strong>Request:</strong></p>
+<ul>
+<li>HTTP Method: <code>DELETE</code></li>
+<li>Endpoint: <code>/cars/{id}</code></li>
+<li>Path parameters: <code>{id}</code> (integer, required): The unique identifier of the car.</li>
+</ul>
+<p><strong>Response:</strong></p>
 <p>Upon successful deletion, the API will return a 204 No Content status code. If the car with the provided id does not exist, the API will return a 404 Not Found status code.</p>
               
             </div>

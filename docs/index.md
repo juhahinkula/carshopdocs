@@ -6,7 +6,7 @@ The Car Shop API is a RESTful web service designed to manage the car stock of a 
 
 Overview:
 
-The API is structured around one main resource: **Cars** 
+The API is structured around one main resource: [**Cars**](cars.md)
 
 The car table in the backend database contains the following fields:
 

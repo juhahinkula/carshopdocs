@@ -20,14 +20,14 @@ The car table in the backend database contains the following fields:
 
 ## Base URL
 ```
-https://carrestservice-carshop.rahtiapp.fi/
+https://car-rest-service-carshop.2.rahtiapp.fi/
 ```
 
 ## Reset Database
 To reset database you can use the following request that deletes all data from the database and re-populate it with the original demo data. 
 
 ```
-POST https://carrestservice-carshop.rahtiapp.fi/reset
+POST https://car-rest-service-carshop.2.rahtiapp.fi/reset
 ```
 Response:
 

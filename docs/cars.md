@@ -2,7 +2,7 @@
 
 ## Base URL
 ```
-https://carrestservice-carshop.rahtiapp.fi/
+https://car-rest-service-carshop.2.rahtiapp.fi/
 ```
 ## Endpoints
 

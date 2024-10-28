@@ -116,7 +116,7 @@ Content-Type: application/json
   "model": "3", 
   "color": "Red", 
   "fuel": "Hybrid", 
-  "year": "2024", 
+  "modelYear": "2024", 
   "price": "48000" 
 } 
 ```
@@ -150,7 +150,7 @@ Content-Type: application/json
   "model": "3", 
   "color": "White", 
   "fuel": "Hybrid", 
-  "year": "2024", 
+  "modelYear": "2024", 
   "price": "48000" 
 } 
 
